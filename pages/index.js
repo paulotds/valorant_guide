@@ -11,7 +11,6 @@ import { Navigation } from "swiper";
 
 
 export default function Home({ list }) {
-  console.log(list)
   return (
     <div className={`${styles.container} container mx-auto`}>
       <Head>
@@ -49,13 +48,13 @@ export default function Home({ list }) {
 }
 
   export async function getStaticProps() {
-  const res = await fetch('http://localhost:3000/api/agents');
-  const json = await res.json();
-
+    const result = await fetch(`https://valorant-api.com/v1/agents`);
+    const json = await result.json();
+    console.log(json.data)
+  
   return {
     props: {
-      list: json.list,
-
+      list: json.data,
     }
   };
 }
