@@ -1,0 +1,45 @@
+
+@font-face {
+    font-family: 'Tungsten Narrow';
+    src: url('tungstennarrow-bold-webfont.woff2') format('woff2'),
+         url('tungstennarrow-bold-webfont.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Tungsten Narrow';
+    src: url('tungstennarrow-light-webfont.woff2') format('woff2'),
+         url('tungstennarrow-light-webfont.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Tungsten Narrow';
+    src: url('tungstennarrow-medium-webfont.woff2') format('woff2'),
+         url('tungstennarrow-medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+
+}
+
+
+
+
+@font-face {
+    font-family: 'Tungsten Narrow';
+    src: url('tungsten-black-webfont.woff2') format('woff2'),
+         url('tungsten-black-webfont.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+
+}

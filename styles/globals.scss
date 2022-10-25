@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --bg-body: #ECE8E1;
+    --bg-header: #111111;
+    --text-blue: #0F1923;
+    --button-color: #FA4454;
+    --white: #fff
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Tungsten Narrow';
+  background: var(--bg-body);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.swiper{
+  width: 100%;
+}
+
+

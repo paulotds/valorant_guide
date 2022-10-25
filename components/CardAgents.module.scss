@@ -1,0 +1,17 @@
+.card{
+    background-color: transparent;
+    width: 100%;   
+
+    .card_item{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .swiper{
+        width: 100%;
+    }
+}
+
+
+
