@@ -1,16 +1,21 @@
 import Head from 'next/head'
 import Image from 'next/image'
 import CardAgents from '../components/CardAgents';
+import CardModes from '../components/CardModes';
+import CardMaps from '../components/CardMaps';
 import Navbar from '../components/Navbar';
 import styles from '../styles/Home.module.scss';
 import Button from '../components/Button';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import "swiper/css/navigation";
+import "swiper/css/pagination";
 import { Navigation } from "swiper";
+import { Pagination } from "swiper";
 
 
-export default function Home({ list }) {
+export default function Home({ listAgent, listModes, listMaps }) {
+  let count = 0;
   return (
     <div className={`${styles.container} container mx-auto`}>
       <Head>
@@ -19,8 +24,10 @@ export default function Home({ list }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} antialiased`}>
+
           <Navbar />
-          <div className={`${styles.banner} border border-gray-500 rounded-lg mt-9 grid grid-cols-2 relative`}>
+
+          <section className={`${styles.banner} border border-gray-500 rounded-lg mt-9 grid grid-cols-2 relative`}>
               <div className={`${styles.info} flex-col`}>
                 <h1 className="mb-4 antialiased">Valorant: o FPS <br></br>
                   competitivo 5x5
@@ -32,29 +39,82 @@ export default function Home({ list }) {
                   SAIBA MAIS
                 </Button>
               </div>
-              <img src="/img/banner.png" className={`${styles.imgBanner} absolute`} />
-          </div>
-          <Swiper navigation={true} modules={[Navigation]} className={styles.card}
-            slidesPerView={4}
-          > 
-            {list.map( item => {
-              if(item.isPlayableCharacter) 
-                return (<SwiperSlide key={item.uuid}><CardAgents item={item} /></SwiperSlide>)
-            })}
-        </Swiper>
+              <img src="/img/banner.png" className={`${styles.imgBanner}`} />
+          </section>
+
+          <section className={styles.sectionAgents}>
+            <div className={styles.title}>
+              <h2>Agentes</h2>
+            </div>
+              <Swiper navigation={true} modules={[Navigation]} className={styles.card}
+                slidesPerView={4}
+              > 
+                {listAgent.map( item => {
+                  if(item.isPlayableCharacter) 
+                    return (<SwiperSlide className={styles.swiper_slide} key={item.uuid}><CardAgents item={item} /></SwiperSlide>)
+                })}
+            </Swiper>
+            <Button href="./sobre">
+              Ver todos os agentes
+            </Button>
+          </section>
+
+          <section className={styles.sectionModes}>
+            <img className={styles.overlayModes} src="./img/modes-overlay.png" />
+            <div className={styles.title}>
+              <h2>Modos de Jogo</h2>
+            </div>
+            <div className={styles.gridCard}>
+              {listModes.map( (item)  => {
+                
+                if(item.displayIcon && count < 4){
+                  count++;
+                  return (<CardModes key={item.uuid} item={item} />)
+                } 
+                  
+              })}
+            </div>
+            <Button href="./sobre">
+              Ver todos os agentes
+            </Button>
+          </section>
+
+          <section className={styles.sectionMaps}>
+            <img className={styles.overlay2} src="./img/overlay2.png" />
+            <div className={styles.title}>
+            <img className={styles.overlay1} src="./img/letter_overlay.png" />
+              <h2>Mapas</h2>
+            </div>
+            
+              <Swiper pagination={true} modules={[Pagination]} className={styles.card}
+                  slidesPerView={6}
+              > 
+                {listMaps.map( item => {
+                    return (<SwiperSlide className={styles.swiper_slide} key={item.uuid}><CardMaps item={item} /></SwiperSlide>)
+                })}
+              </Swiper>
+            
+          </section>
       </main>
     </div>
   )
 }
 
   export async function getStaticProps() {
-    const result = await fetch(`https://valorant-api.com/v1/agents`);
-    const json = await result.json();
-    console.log(json.data)
-  
+    const resultAgent = await fetch(`https://valorant-api.com/v1/agents`);
+    const jsonAgent = await resultAgent.json();
+    
+    const resultModes = await fetch(`https://valorant-api.com/v1/gamemodes`);
+    const jsonModes = await resultModes.json();
+
+    const resultMaps = await fetch(`https://valorant-api.com/v1/maps`);
+    const jsonMaps = await resultMaps.json();
+    
   return {
     props: {
-      list: json.data,
+      listAgent: jsonAgent.data,
+      listModes: jsonModes.data,
+      listMaps: jsonMaps.data,
     }
   };
 }

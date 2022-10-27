@@ -1,0 +1,43 @@
+.card{
+    height: 32rem;
+    position: relative;
+    transition: 0.4s all;
+    filter: brightness(0.9);
+
+    img{
+        object-fit: cover;
+        object-position: center;
+        height: 100%;
+        transition: 0.5s all;
+        
+    }
+
+    strong{
+        position: absolute;
+        top: 30px;
+        left: 0;
+        font-size: 2.5rem;
+        color: var(--white);
+        text-transform: uppercase;
+        font-weight: 900;
+        line-height: 40px;
+        padding-top: 3px;
+        padding-left: 20px;
+        padding-right: 40px;
+        transition: 0.5s all;
+        opacity: 1;
+    }
+
+    &:hover{    
+        filter: brightness(1);
+        img{
+            transform: scale(1.03);
+        }
+        strong{
+            background-color: var(--bg-card); 
+            left: -3px;
+            opacity: 1;
+            text-shadow: 0px 3px 1px rgba(0, 0, 0, 0.20);
+        }
+    }
+}

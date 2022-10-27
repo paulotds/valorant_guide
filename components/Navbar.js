@@ -20,7 +20,7 @@ export default function Navbar() {
     <Disclosure as="nav" className={`${styles.nav} rounded-md h-23 py-3`}>
       {({ open }) => (
         <>
-          <div className="max-w-7xl px-2 sm:px-6 lg:px-8 justify-between">
+          <div className="px-2 sm:px-6 lg:px-8 justify-between">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 {/* Mobile menu button*/}
@@ -70,7 +70,7 @@ export default function Navbar() {
                     <input type="search" name="q" className={`${styles.input} text-sm text-white pr-3 pl-5 rounded-full focus:outline-none focus:bg-white focus:text-gray-900 placeholder:text-white`} placeholder="PESQUISAR" autoComplete="off"/>
                     <span className="absolute inset-y-0 right-2 flex items-center pl-2">
                         <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
-                            <img src="/img/search.svg" alt=""/>
+                          <img src="../img/search.svg" alt="" />
                         </button>
                     </span>
                     </div>
