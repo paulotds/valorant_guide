@@ -19,3 +19,10 @@
 }
 
 
+@media (max-width: 578px) {
+    .nav{
+        form{
+            display: none;
+        }
+    }
+}

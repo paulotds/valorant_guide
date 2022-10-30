@@ -5,19 +5,20 @@
         background-color: var(--bg-card);
         border-radius: 10px;
         width: 100%;
-        height: 35rem;
+        height: auto;
         position: relative;
         justify-content: flex-end;
-        padding-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        padding-top: 1.8rem;
         overflow: hidden;
         box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.33);
         transition: 0.3s all;
         h3{
-          font-size: 3.3rem;
+          font-size: 3rem;
           font-weight: 900;
           color: var(--white);
           text-transform: uppercase;
-          transition: 0.6s all;
+          transition: 0.4s all;
         }
 
         .overlay{
@@ -28,14 +29,14 @@
           max-width: unset;
           bottom: -30%;
           right: -47%;
-          transition: 0.8s all;
+          transition: 0.6s all;
           filter: blur(1px);
         }
         .imgAgent{
-          width: 163%;      
+          width: 161%;      
           max-width: unset;
           z-index: 2;
-          transition: 0.6s all;
+          transition: 0.4s all;
           filter: brightness(0.8);
         }
 

@@ -1,9 +1,13 @@
 import Head from 'next/head'
+import React, { useEffect } from 'react';
+import Rellax from 'rellax';
 import Image from 'next/image'
 import CardAgents from '../components/CardAgents';
 import CardModes from '../components/CardModes';
 import CardMaps from '../components/CardMaps';
+import CardRanks from '../components/CardRanks';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer'
 import styles from '../styles/Home.module.scss';
 import Button from '../components/Button';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -14,8 +18,34 @@ import { Navigation } from "swiper";
 import { Pagination } from "swiper";
 
 
-export default function Home({ listAgent, listModes, listMaps }) {
+export default function Home({ listAgent, listModes, listMaps, listRanks }) {
   let count = 0;
+  let counts = 0;
+
+  useEffect(() => {
+    new Rellax ( ".animate", {
+      speed: -2,
+      center: false,
+      wrapper: null,
+      relativeToWrapper: false,
+      round: true,
+      vertical: true,
+      horizontal: false,
+    });
+  }, []);
+
+  const listRank2 = [];
+
+  function filterList() {
+    listRanks.forEach( (item) => {
+      listRank2.push(item.tierName.split(' ')[0]);
+      }
+    )
+  }
+  
+  filterList();
+  console.log(listRanks)
+  
   return (
     <div className={`${styles.container} container mx-auto`}>
       <Head>
@@ -43,12 +73,38 @@ export default function Home({ listAgent, listModes, listMaps }) {
           </section>
 
           <section className={styles.sectionAgents}>
+          <img className={`${styles.overlay1}`} src="./img/letter_overlay.png" />
+          <img data-rellax-zindex="0" data-rellax-percentage="0.3" data-rellax-time="-5" className={`${styles.overlay2} animate`} src="./img/overlay3.png" />
+          <img data-rellax-percentage="-0.3" data-rellax-time="-1" className={`${styles.overlay3} animate`} src="./img/overlay3.png" />
             <div className={styles.title}>
               <h2>Agentes</h2>
             </div>
-              <Swiper navigation={true} modules={[Navigation]} className={styles.card}
-                slidesPerView={4}
-              > 
+              <Swiper grabCursor={true}  navigation={true} modules={[Navigation]} className={styles.card}
+                breakpoints={{
+                  // when window width is >= 640px
+                  0: {
+                    slidesPerView: 1,
+                    spaceBetween: 10,
+                  },
+                  480: {
+                    spaceBetween: 10,
+                    slidesPerView: 1,
+                  },
+                  // when window width is >= 768px
+                  768: {
+                    spaceBetween: 15,
+                    slidesPerView: 2,
+                  },
+                  1024: {
+                    spaceBetween: 15,
+                    slidesPerView: 3,
+                  },
+                  1280: {
+                    spaceBetween: 5,
+                    slidesPerView: 4,
+                  },
+                }}
+                > 
                 {listAgent.map( item => {
                   if(item.isPlayableCharacter) 
                     return (<SwiperSlide className={styles.swiper_slide} key={item.uuid}><CardAgents item={item} /></SwiperSlide>)
@@ -75,14 +131,14 @@ export default function Home({ listAgent, listModes, listMaps }) {
               })}
             </div>
             <Button href="./sobre">
-              Ver todos os agentes
+              Ver todos os modos
             </Button>
           </section>
 
           <section className={styles.sectionMaps}>
-            <img className={styles.overlay2} src="./img/overlay2.png" />
+            <img data-rellax-time="-2" data-rellax-percentage="-0.2" className={`${styles.overlay2} animate`} src="./img/overlay2.png" />
             <div className={styles.title}>
-            <img className={styles.overlay1} src="./img/letter_overlay.png" />
+            <img data-rellax-time="-4" data-rellax-percentage="-0.3" className={`${styles.overlay1} animate`} src="./img/letter_overlay.png" />
               <h2>Mapas</h2>
             </div>
             
@@ -93,8 +149,28 @@ export default function Home({ listAgent, listModes, listMaps }) {
                     return (<SwiperSlide className={styles.swiper_slide} key={item.uuid}><CardMaps item={item} /></SwiperSlide>)
                 })}
               </Swiper>
-            
+          
           </section>
+          
+          <section className={styles.sectionRank}>
+            <div className={styles.title}>
+              <h2>Ranques</h2>
+            </div>
+            <div className={styles.gridCard}>
+              {[...new Set(listRank2)].reverse().map( (item)  => { 
+                if(item.largeIcon && counts < 4){
+                  counts++;
+                  return (<CardRanks key={item.tier} item={item} />)
+                }
+              }
+              )}
+            </div>
+            <Button cName="buttonRank" href="./sobre">
+              Ver todos os ranques
+            </Button>
+          </section>
+
+          <Footer />
       </main>
     </div>
   )
@@ -109,12 +185,16 @@ export default function Home({ listAgent, listModes, listMaps }) {
 
     const resultMaps = await fetch(`https://valorant-api.com/v1/maps`);
     const jsonMaps = await resultMaps.json();
+
+    const resultRanks = await fetch(`https://valorant-api.com/v1/competitivetiers/23eb970e-6408-bc0b-3f20-d8fb0e0354ea`);
+    const jsonRanks = await resultRanks.json();
     
   return {
     props: {
       listAgent: jsonAgent.data,
       listModes: jsonModes.data,
       listMaps: jsonMaps.data,
+      listRanks: jsonRanks.data.tiers,
     }
   };
 }

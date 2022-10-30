@@ -55,11 +55,59 @@
     }
   }
 
+  @media (max-width: 568px) {
+    .banner{
+      flex-direction: column;
+      padding: 0rem;
+      .imgBanner{
+        position: relative;
+        bottom: unset;
+        right: unset;
+        width: 100%;
+        order: 1;
+      }
+
+      .info{
+        padding: 2rem;
+        order: 2;
+
+        h1{
+          font-size: 4rem;
+          line-height: 3.5rem;
+        }
+      }
+    }
+  }
+
    /***** SECTION AGENTS ******/
   
   .sectionAgents{
       padding-top: 4rem;
       padding-bottom: 5rem;
+      position: relative;
+
+      .overlay1{
+        position: absolute;
+        width: 59%;
+        right: -20px;
+        top: 110px;
+      }
+      .overlay2{
+        position: absolute;
+        width: 200px;
+        right: -46px;
+        top: 8px;
+      }
+      .overlay3{
+        position: absolute;
+        width: 190px;
+        left: 0;
+        bottom: -90px;
+      }
+
+      .card{
+        width: 95%;
+      }
   }
 
    /***** SECTION MODOS DE JOGO ******/
@@ -69,6 +117,7 @@
     background-color: var(--text-blue);
     padding: 3rem 5rem;
     position: relative;
+    z-index: 1;
 
     .overlayModes{
       position: absolute;
@@ -116,13 +165,53 @@
       top: 8px;
       right: -30px;
     }
+
     .card{
       border-radius: 20px;
+      width: 95%;
       box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.33);
       .swiper_slide{
         padding: 0 !important;
         
       }
+    }
+  }
+}
+
+ /***** SECTION RANQUES ******/
+  
+ .sectionRank{
+  border-radius: 10px;
+  background-color: var(--bg-card);
+  padding: 3rem 5rem;
+  position: relative;
+  z-index: 1;
+  margin-top: 2rem;
+
+  .buttonRank{
+    background-color: var(--white);
+  }
+
+  .overlayModes{
+    position: absolute;
+    width: 210px;
+    right: -45px;
+    top: -30px;
+  }
+  
+  .gridCard{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: auto;
+    gap: 32px;
+    margin-top: 3rem;
+    padding-bottom: 2.1rem;
+  }
+
+  .title{
+    h2{
+      color: var(--white);
     }
   }
 }

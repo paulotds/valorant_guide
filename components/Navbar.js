@@ -37,7 +37,7 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center">
                   <img
                     className="block h-10 w-auto lg:hidden"
-                    src={LogoHead}
+                    src="/img/logo_head.svg"
                     alt="Your Company"
                   />
                   <img
@@ -49,12 +49,13 @@ export default function Navbar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-5">
                     {navigation.map((item) => (
+                      
                       <a
                         key={item.name}
                         href={item.href}
                         className={classNames(
                           item.current ? 'border-b-2 text-white' : 'text-gray-300 hover:border-b-2 hover:text-white',
-                          'px-0 pt-1 pb-0 text-sm font-medium'
+                          'px-0 pt-1 pb-1 text-sm font-medium'
                         )}
                         aria-current={item.current ? 'page' : undefined}
                       >
@@ -70,7 +71,7 @@ export default function Navbar() {
                     <input type="search" name="q" className={`${styles.input} text-sm text-white pr-3 pl-5 rounded-full focus:outline-none focus:bg-white focus:text-gray-900 placeholder:text-white`} placeholder="PESQUISAR" autoComplete="off"/>
                     <span className="absolute inset-y-0 right-2 flex items-center pl-2">
                         <button type="submit" className="p-1 focus:outline-none focus:shadow-outline">
-                          <img src="../img/search.svg" alt="" />
+                          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" className="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                         </button>
                     </span>
                     </div>

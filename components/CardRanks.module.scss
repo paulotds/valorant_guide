@@ -1,22 +1,22 @@
 .card{
-    width: 320px;
-    padding: 42px 0;
+    width: 100%;
+    padding: 50px 0;
     border: 1px solid var(--white);
     border-radius: 25px;
     display: flex;
     flex-direction: column;;
     align-items: center;
-    transition: 0.3s all;
+    transition: 0.2s all;
     
     img{
-        width: 85px;
-        margin-bottom: 1.2rem;
+        width: 100px;
+        margin-bottom: 1.7rem;
     }
 
     strong{
         font-weight: 900;
         color: var(--white);
-        font-size: 2.8rem;
+        font-size: 2.3rem;
         text-transform: uppercase;
         margin-bottom: 0px;
         line-height: 40px;

@@ -1,0 +1,93 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    align-items: center;   
+    padding: 1.5rem 3.5rem;
+    width: 100%;
+    background-color: var(--bg-header);
+    color: var(--white);
+    border-radius: 10px;
+    margin: 2.3rem 0 0 0;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+
+    .divisor{
+        height: 100px;
+        width: 2px;
+        background-color: var(--bg-card);
+
+    }
+    
+    .info{
+        width: 50%;
+        padding-right: 2.5rem;
+        
+        h2{
+            font-weight: 900;
+            font-size: 2.2rem;
+            font-family: 'Tungsten Narrow';
+        }
+        p{
+            font-size: .7rem;
+            font-weight: 500 !important;
+            font-style: normal;
+            line-height: 14px;
+        }
+       
+    }
+
+    .navFooter{
+        display: grid;
+        justify-content: flex-start;
+        grid-template-columns: auto auto;
+        grid-auto-rows: max-content;
+        width: 27%;
+       
+        padding-left: 2rem;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+
+        li{
+            list-style: none;
+            margin-right: 2.4rem;
+            font-size: 0.8rem;
+            font-weight: 900;
+            padding: 0.3rem 0;
+            text-transform: uppercase;
+
+        }
+    }
+    .social{
+        padding-left: 1.7rem;
+        width: 25%;
+
+        
+
+        P{
+            font-size: .85rem;
+            font-weight: 900;
+
+            span{
+                text-transform: uppercase;
+                padding-bottom: 1px;
+                border-image: 2px solid var(--bg-card);
+            }
+        }
+        .redesSociais{
+            padding-top: 1rem;
+            display: flex;
+            flex-direction: row;
+
+            img{
+                margin-right: 0.6rem;
+                width: 27px;
+                transition: 0.2s all;
+                cursor: pointer;
+
+                &:hover{
+                    transform: translateY(-2px);
+                }
+            }
+        }
+    }
+}
