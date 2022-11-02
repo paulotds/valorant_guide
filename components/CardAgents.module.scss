@@ -59,4 +59,15 @@
         }
     }
 
+    @media (max-width: 568px) {
+      .card{
+        
+        width: 100%;
+        .imgAgent {
+          transform: translateY(-10px);
+          filter: brightness(1.1);
+        }
+      }
+    }
+
 

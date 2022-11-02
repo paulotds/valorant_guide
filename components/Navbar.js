@@ -1,7 +1,6 @@
 import { Disclosure, Menu, Transition } from '@headlessui/react';
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline';
 import styles from './Navbar.module.scss';
-import LogoHead from '../assets/logo_head.svg';
 
 const navigation = [
   { name: 'Início', href: '#', current: true },
@@ -22,7 +21,7 @@ export default function Navbar() {
         <>
           <div className="px-2 sm:px-6 lg:px-8 justify-between">
             <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
+              <div className={`${styles.hamburguer} absolute inset-y-0 left-0 flex items-center sm:hidden`}>
                 {/* Mobile menu button*/}
                 <Disclosure.Button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
@@ -48,8 +47,7 @@ export default function Navbar() {
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-5">
-                    {navigation.map((item) => (
-                      
+                    {navigation.map((item) => ( 
                       <a
                         key={item.name}
                         href={item.href}

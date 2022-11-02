@@ -22,3 +22,10 @@
         box-shadow: 0px 20px 20px -22px rgba(0,0,0,0.46);
     }
 }
+
+@media (max-width: 568px) {
+    .buttonUi{
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+}

@@ -21,6 +21,10 @@
 
 @media (max-width: 578px) {
     .nav{
+
+        .hamburger{
+            right: 0 !important;
+        }
         form{
             display: none;
         }

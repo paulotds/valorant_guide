@@ -56,6 +56,7 @@
   }
 
   @media (max-width: 568px) {
+    
     .banner{
       flex-direction: column;
       padding: 0rem;
@@ -68,12 +69,19 @@
       }
 
       .info{
-        padding: 2rem;
+        padding: 1.5rem;
         order: 2;
+        
+        br{
+          display: none;
+        }
 
         h1{
           font-size: 4rem;
           line-height: 3.5rem;
+        }
+        p{
+          font-size: 1.3rem;
         }
       }
     }
@@ -110,6 +118,26 @@
       }
   }
 
+  @media (max-width: 568px) {
+    .sectionAgents{
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+
+      .overlay1{
+        width: 100%;
+        right: -20px;
+        top: 138px;
+      }
+      .overlay2{
+        right: -18px;
+      }
+
+      .card{
+        width: 100%;
+      }
+    }
+  }
+
    /***** SECTION MODOS DE JOGO ******/
   
   .sectionModes{
@@ -143,6 +171,23 @@
     }
   }
 
+  @media (max-width: 568px) {
+      .sectionModes{
+        padding: 3rem 1.5rem;
+
+        .overlayModes{
+          width: 60px;
+          right: 9px;
+          top: -42px;
+        }
+       
+        .gridCard{
+          display: flex;
+          flex-direction: column;
+        }
+      }
+  }
+
   /***** SECTION MAPAS ******/
 
   .sectionMaps{
@@ -174,6 +219,20 @@
         padding: 0 !important;
         
       }
+    }
+  }
+}
+
+@media (max-width: 568px) {
+  .sectionMaps{
+    padding: 4rem 0 2rem 0 !important;
+    .overlay1{
+      width: 100% !important;
+      right: 0% !important;
+    }
+
+    .overlay2{
+      right: -9px !important;
     }
   }
 }
@@ -216,3 +275,19 @@
   }
 }
 
+@media (max-width: 568px) {
+  .sectionRank{
+    padding: 3rem 1.5rem;
+
+    .gridCard{
+      flex-direction: column-reverse;
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media (max-width: 568px) {
+  .main{
+    padding: 0 1rem;
+  }
+}

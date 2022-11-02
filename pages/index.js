@@ -34,17 +34,13 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
     });
   }, []);
 
-  const listRank2 = [];
 
-  function filterList() {
-    listRanks.forEach( (item) => {
-      listRank2.push(item.tierName.split(' ')[0]);
-      }
-    )
-  }
+  const listFilter = listRanks.filter( (item) =>{
+      return item.tierName.split(' ')[1] == 3
+  })
+
+  console.log(listFilter)
   
-  filterList();
-  console.log(listRanks)
   
   return (
     <div className={`${styles.container} container mx-auto`}>
@@ -84,10 +80,10 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
                   // when window width is >= 640px
                   0: {
                     slidesPerView: 1,
-                    spaceBetween: 10,
+                    spaceBetween: 0,
                   },
                   480: {
-                    spaceBetween: 10,
+                    spaceBetween: 0,
                     slidesPerView: 1,
                   },
                   // when window width is >= 768px
@@ -100,7 +96,7 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
                     slidesPerView: 3,
                   },
                   1280: {
-                    spaceBetween: 5,
+                    spaceBetween: 15,
                     slidesPerView: 4,
                   },
                 }}
@@ -143,7 +139,30 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
             </div>
             
               <Swiper pagination={true} modules={[Pagination]} className={styles.card}
-                  slidesPerView={6}
+              breakpoints={{
+                // when window width is >= 640px
+                0: {
+                  slidesPerView: 1,
+                  spaceBetween: 10,
+                },
+                480: {
+                  spaceBetween: 0,
+                  slidesPerView: 1,
+                },
+                // when window width is >= 768px
+                768: {
+                  spaceBetween: 0,
+                  slidesPerView: 5,
+                },
+                1024: {
+                  spaceBetween: 0,
+                  slidesPerView: 6,
+                },
+                1280: {
+                  spaceBetween: 0,
+                  slidesPerView: 6,
+                },
+              }}
               > 
                 {listMaps.map( item => {
                     return (<SwiperSlide className={styles.swiper_slide} key={item.uuid}><CardMaps item={item} /></SwiperSlide>)
@@ -157,7 +176,7 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
               <h2>Ranques</h2>
             </div>
             <div className={styles.gridCard}>
-              {[...new Set(listRank2)].reverse().map( (item)  => { 
+              {listFilter.reverse().map( (item)  => { 
                 if(item.largeIcon && counts < 4){
                   counts++;
                   return (<CardRanks key={item.tier} item={item} />)
@@ -186,7 +205,7 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
     const resultMaps = await fetch(`https://valorant-api.com/v1/maps`);
     const jsonMaps = await resultMaps.json();
 
-    const resultRanks = await fetch(`https://valorant-api.com/v1/competitivetiers/23eb970e-6408-bc0b-3f20-d8fb0e0354ea`);
+    const resultRanks = await fetch(`https://valorant-api.com/v1/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1`);
     const jsonRanks = await resultRanks.json();
     
   return {
