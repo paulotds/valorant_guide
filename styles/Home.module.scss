@@ -2,6 +2,7 @@
   padding: 2rem 0;
 }
 
+
 .main {
   min-height: 100vh;
   width: 100%;
@@ -59,7 +60,7 @@
     
     .banner{
       flex-direction: column;
-      padding: 0rem;
+      padding: 2rem 0rem;
       .imgBanner{
         position: relative;
         bottom: unset;
@@ -287,6 +288,9 @@
 }
 
 @media (max-width: 568px) {
+  .container{
+    padding: 1.5rem 0;
+  }
   .main{
     padding: 0 1rem;
   }
