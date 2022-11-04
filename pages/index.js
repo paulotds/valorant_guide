@@ -36,11 +36,10 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
 
 
   const listFilter = listRanks.filter( (item) =>{
-      return item.tierName.split(' ')[1] == 3
-  })
-
-  console.log(listFilter)
-  
+      const array = item.tierName.split(' ')
+      return array[1] == 3 
+      || array.length == 1 
+  })  
   
   return (
     <div className={`${styles.container} container mx-auto`}>
@@ -184,7 +183,7 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
               }
               )}
             </div>
-            <Button cName="buttonRank" href="./sobre">
+            <Button variant="buttonRank" href="./sobre">
               Ver todos os ranques
             </Button>
           </section>
@@ -199,13 +198,13 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
     const resultAgent = await fetch(`https://valorant-api.com/v1/agents`);
     const jsonAgent = await resultAgent.json();
     
-    const resultModes = await fetch(`https://valorant-api.com/v1/gamemodes`);
+    const resultModes = await fetch(`https://valorant-api.com/v1/gamemodes?language=pt-BR`);
     const jsonModes = await resultModes.json();
 
     const resultMaps = await fetch(`https://valorant-api.com/v1/maps`);
     const jsonMaps = await resultMaps.json();
 
-    const resultRanks = await fetch(`https://valorant-api.com/v1/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1`);
+    const resultRanks = await fetch(`https://valorant-api.com/v1/competitivetiers/564d8e28-c226-3180-6285-e48a390db8b1?language=pt-BR`);
     const jsonRanks = await resultRanks.json();
     
   return {

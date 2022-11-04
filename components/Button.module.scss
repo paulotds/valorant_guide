@@ -14,6 +14,33 @@
     margin-top: 2rem;
     transition: 0.3s all;
     text-transform: uppercase;
+    z-index: 2;
+
+    &:hover{
+        transform: translateY(-2px);
+        -webkit-box-shadow: 0px 9px 24px -13px rgba(0,0,0,0.46);
+        -moz-box-shadow: 0px 9px 24px -13px rgba(0,0,0,0.46);
+        box-shadow: 0px 20px 20px -22px rgba(0,0,0,0.46);
+    }
+}
+
+.buttonRank{
+    width: 25rem;
+    height: 3.7rem;
+    background-color: var(--white);
+    border-radius: 10px;
+    color: var(--bg-card);
+    font-size: 1.9rem;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle; 
+    margin: 0 auto;  
+    margin-top: 2rem;
+    transition: 0.3s all;
+    text-transform: uppercase;
+    z-index: 2;
 
     &:hover{
         transform: translateY(-2px);
