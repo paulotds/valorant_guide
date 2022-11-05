@@ -64,13 +64,13 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
                   SAIBA MAIS
                 </Button>
               </div>
-              <img src="/img/banner.png" className={`${styles.imgBanner}`} />
+              <img src="/img/banner.webp" className={`${styles.imgBanner}`} />
           </section>
 
           <section className={styles.sectionAgents}>
-          <img className={`${styles.overlay1}`} src="./img/letter_overlay.png" />
-          <img data-rellax-zindex="0" data-rellax-percentage="0.3" data-rellax-time="-5" className={`${styles.overlay2} animate`} src="./img/overlay3.png" />
-          <img data-rellax-percentage="-0.3" data-rellax-time="-1" className={`${styles.overlay3} animate`} src="./img/overlay3.png" />
+          <img className={`${styles.overlay1}`} src="./img/letter_overlay.webp" />
+          <img data-rellax-zindex="0" data-rellax-percentage="0.3" data-rellax-time="-5" className={`${styles.overlay2} animate`} src="./img/overlay3.webp" />
+          <img data-rellax-percentage="-0.3" data-rellax-time="-1" className={`${styles.overlay3} animate`} src="./img/overlay3.webp" />
             <div className={styles.title}>
               <h2>Agentes</h2>
             </div>
@@ -111,7 +111,7 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
           </section>
 
           <section className={styles.sectionModes}>
-            <img className={styles.overlayModes} src="./img/modes-overlay.png" />
+            <img className={styles.overlayModes} src="./img/modes-overlay.webp" />
             <div className={styles.title}>
               <h2>Modos de Jogo</h2>
             </div>
@@ -131,9 +131,9 @@ export default function Home({ listAgent, listModes, listMaps, listRanks }) {
           </section>
 
           <section className={styles.sectionMaps}>
-            <img data-rellax-time="-2" data-rellax-percentage="-0.2" className={`${styles.overlay2} animate`} src="./img/overlay2.png" />
+            <img data-rellax-time="-2" data-rellax-percentage="-0.2" className={`${styles.overlay2} animate`} src="./img/overlay2.webp" />
             <div className={styles.title}>
-            <img data-rellax-time="-4" data-rellax-percentage="-0.3" className={`${styles.overlay1} animate`} src="./img/letter_overlay.png" />
+            <img data-rellax-time="-4" data-rellax-percentage="-0.3" className={`${styles.overlay1} animate`} src="./img/letter_overlay.webp" />
               <h2>Mapas</h2>
             </div>
             

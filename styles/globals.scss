@@ -29,6 +29,17 @@ a {
   box-sizing: border-box;
 }
 
+.swiper-button-next, .swiper-button-prev{
+  color: var(--white) !important;
+}
+
+.swiper-pagination-bullet-active{
+  background: var(--white) !important;
+}
+.swiper-pagination-bullet{
+  background: var(--white) !important;
+}
+
 .swiper{
   width: 100%;
   display: flex;

@@ -54,7 +54,12 @@
             font-weight: 900;
             padding: 0.3rem 0;
             text-transform: uppercase;
+            transition: 0.2s all;
+            
 
+            &:hover{
+                color: var(--bg-card);
+            }
         }
     }
     .social{
@@ -70,7 +75,7 @@
             span{
                 text-transform: uppercase;
                 padding-bottom: 1px;
-                border-image: 2px solid var(--bg-card);
+                border-bottom: 2px solid var(--bg-card);
             }
         }
         .redesSociais{
